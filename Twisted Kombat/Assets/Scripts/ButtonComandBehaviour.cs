@@ -8,21 +8,25 @@ public class ButtonComandBehaviour : MonoBehaviour {
 
     public TypeOfSprite spriteToDraw = TypeOfSprite.Up;
     public Sprite[] sprites = new Sprite[4];
-    public float speed = 1f;
+    public float speed = 5f;
     public bool pressed = false;
+
+    private Vector2 speedVector;
 	// Use this for initialization
 	void Start () {
+        speedVector = new Vector2(-speed, 0);
         GetComponent<SpriteRenderer>().sprite = sprites[(int)spriteToDraw];
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        //speedVector = new Vector2(-speed*UnityEngine.Time.deltaTime, 0);
     }
 
     void FixedUpdate()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * speed);
+        //transform.Translate(Vector3.left * Time.deltaTime * speed);
+        GetComponent<Rigidbody2D>().velocity = speedVector;
     }
 
     void UpdateSpriteToDraw()

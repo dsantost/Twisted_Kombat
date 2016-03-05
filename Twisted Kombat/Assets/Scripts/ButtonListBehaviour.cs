@@ -39,7 +39,7 @@ public class ButtonListBehaviour : MonoBehaviour {
         if(buttonListArray.Length > 0) { 
             ButtonComandBehaviour obj = Instantiate(prefab);
             obj.SetSpriteToRender(buttonListArray[0]);
-            obj.transform.position = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth - 25, 40, 5));
+            obj.transform.position = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth - 25, 60, 5));
             buttonListArray = new string(buttonListArray).Remove(0, 1).ToCharArray();
         }
     }
